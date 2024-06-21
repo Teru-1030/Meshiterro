@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get 'dashboards', to: 'dashboards#index'
     resources :users, only: [:destroy]
   end
+  
+ scope module: :public do  
   root to: 'homes#top'
   devise_for :users
   get 'homes/about' => 'homes#about', as: 'about'
@@ -15,5 +17,7 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
  end
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+end
